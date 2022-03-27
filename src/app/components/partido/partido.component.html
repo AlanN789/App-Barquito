@@ -1,0 +1,14 @@
+<app-navbar></app-navbar>
+<form [formGroup]="comentarioForm" (ngSubmit)="agregar()">
+
+    <mat-form-field appearance="fill">
+        <mat-label>Comentario</mat-label>
+          <input formControlName="comentario" matInput #input placeholder="Ex. 0' Arranca el partido">
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button>Agregar comentario</button>
+    
+    <mat-card *ngFor="let coments of comentario">
+        {{coments}}
+    </mat-card>
+</form>

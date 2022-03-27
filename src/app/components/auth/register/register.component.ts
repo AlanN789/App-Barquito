@@ -72,7 +72,7 @@ export class RegisterComponent implements OnInit {
   }
   setUser():void{
     this.User = {
-      username: this.registerForm.get('user')?.value,
+      Nombre: this.registerForm.get('user')?.value,
       email: this.registerForm.get('email')?.value,
       password: this.registerForm.get('password')?.value
     }

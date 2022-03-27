@@ -1,7 +1,6 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <h2 class="text-center text-dark mt-5">Login Form</h2>
             <div class="card my-5">
                 <form class="card-body cardbody-color p-lg-5" [formGroup]="loginForm" (ngSubmit)="login()">
                     <div class="text-center">   
@@ -10,7 +9,7 @@
                     </div>
                     <div class="mb-3">
                         <input type="text" class="form-control" id="Email" aria-describedby="emailHelp"
-                        placeholder="Email" formControlName="user" [class.is-invalid]="emailValidate">
+                        placeholder="Email" formControlName="email" [class.is-invalid]="emailValidate">
                     </div>
                     <div class="mb-3">
                         <input type="Password" class="form-control" id="password" 

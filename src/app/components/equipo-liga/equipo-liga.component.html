@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<div>
+    <form [formGroup]="equipoligaForm" (ngSubmit)="agregar()">
+        
+        <mat-form-field appearance="fill">
+          <mat-label>Equipo</mat-label>
+          <mat-select formControlName="equipo">
+            <mat-option *ngFor="let eq of data" value="{{eq.id}}">{{eq.Nombre}}</mat-option>
+          </mat-select> 
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill">  
+          <mat-label>Liga</mat-label>
+            <mat-select formControlName="liga">
+              <mat-option  *ngFor="let liga of ligas" value="{{liga.id}}">{{liga.Liga}}</mat-option>
+            </mat-select> 
+        </mat-form-field>
+
+      <button type="submit" mat-raised-button>Agregar Equipo</button>
+    </form>
+</div>
+<div style="display: flex; orientation: horizontal; align-content: space-around;">
+<table mat-table [dataSource]="data" class="mat-elevation-z8 demo-table">
+    
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+    
+    <!-- Equipo Column -->
+    <ng-container matColumnDef="Equipo">
+      <th mat-header-cell *matHeaderCellDef> Equipo </th>
+      <td mat-cell *matCellDef="let element"> {{element.Nombre}} </td>
+    </ng-container>
+  
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row  *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+</table>
+<table mat-table [dataSource]="ligas" class="mat-elevation-z8 demo-table">
+    
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+    
+    <!-- Equipo Column -->
+    <ng-container matColumnDef="Liga">
+      <th mat-header-cell *matHeaderCellDef> Liga </th>
+      <td mat-cell *matCellDef="let element"> {{element.Liga}} </td>
+    </ng-container>
+  
+    
+    <tr mat-header-row *matHeaderRowDef="displatedColumnsn"></tr>
+    <tr mat-row  *matRowDef="let row; columns: displatedColumnsn;"></tr>
+    
+</table>
+</div>

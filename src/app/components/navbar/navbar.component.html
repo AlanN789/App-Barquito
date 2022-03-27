@@ -5,23 +5,24 @@
         <a class="navbar-brand" href="#">
             Federaciones
         </a>
-        <a class="navbar-brand" href="#" >
+        <a class="navbar-brand" (click)="destroycookie()" [routerLink]="['/equipos']" >
             Equipos
         </a>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" (click)="destroycookie()" [routerLink]="['/ligas']">
             Ligas
         </a>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" (click)="destroycookie()" [routerLink]="['/jugadores']">
             Jugadores
         </a>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" (click)="destroycookie()" [routerLink]="['/dt']">
             Directores Tecnicos
         </a>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" (click)="destroycookie()" [routerLink]="['/estadios']">
             Estadios
         </a>
-        <a class="navbar-brand" href="#">
-            Patrocinadores
+        <a class="navbar-brand" (click)="destroycookie()" [routerLink]="['/partidos']">
+            Partidos
         </a>
+        <button mat-raised-button color="warn" (click)="logout()">Logout</button>
     </nav>
 </div>

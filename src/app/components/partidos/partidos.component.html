@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+<button mat-raised-button *ngIf="visiblebtn" (click)="mostrarAgregar()">Agregar Partido</button>  
+  <div class="row" *ngIf="visible">
+    <form [formGroup]="partidoForm" (ngSubmit)="agregar()">
+
+        <mat-form-field appearance="fill">
+          <mat-label>Local</mat-label>
+          <mat-select  formControlName="local" >
+            <mat-option *ngFor="let local of locales" value="{{local.id}}" [disabled]="disabledloc(local.id)">{{local.Nombre}}</mat-option>
+          </mat-select> 
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>Visitante</mat-label>
+            <mat-select  formControlName="visitante">
+              <mat-option *ngFor="let visitante of visitantes" value="{{visitante.id}}" [disabled]="disabledvis(visitante.id)">{{visitante.Nombre}}</mat-option>
+            </mat-select> 
+          </mat-form-field>
+
+        <mat-form-field appearance="fill">  
+          <mat-label>Estadio</mat-label>
+            <mat-select formControlName="estadio">
+              <mat-option  *ngFor="let estadio of estadios" value="{{estadio.id}}">{{estadio.Nombre}}</mat-option>
+            </mat-select> 
+        </mat-form-field>
+
+      <button type="submit" mat-raised-button>Agregar partido</button>
+    </form>
+  </div>
+  
+<table mat-table [dataSource]="partidos" class="mat-elevation-z8 demo-table">
+    
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+    
+    <!-- Local Column -->
+    <ng-container matColumnDef="Local">
+      <th mat-header-cell *matHeaderCellDef> Local </th>
+      <td mat-cell *matCellDef="let element"> {{element.Local}} </td>
+    </ng-container>
+  
+    <!-- Visitante Column-->
+    <ng-container matColumnDef="Visitante">
+        <th mat-header-cell *matHeaderCellDef> Visitante </th>
+        <td mat-cell *matCellDef="let element"> {{element.Visitante}} </td>
+    </ng-container>
+    
+    <!-- Estadio Column -->
+    <ng-container matColumnDef="Estadio">
+        <th mat-header-cell *matHeaderCellDef> Estadio </th>
+        <td mat-cell *matCellDef="let element"> {{element.Estadio}} </td>
+    </ng-container>
+    
+    <!--Actions Column -->
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element">
+        <button *ngIf="!(visiblebtn)" mat-raised-button color="primary" (click)="verNarracionCliente(element.id)">Ver narracion</button>
+        <button *ngIf="visiblebtn" mat-raised-button color="primary" (click)="verNarracion(element.id)">Ver narración</button>
+        <button *ngIf="visiblebtn" mat-raised-button color="warn" (click)="eliminar(element.id)">Delete</button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row  *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+</table>
