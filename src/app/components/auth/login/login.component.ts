@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
           successDialog('Logueo Completado');
           this.cookieService.set('token', data.token);
           console.log(this.cookieService.get('token'));
-          this.router.navigate(['/mainadmin']);
+          this.router.navigate(['/main']);
 
         })
       }, error => {

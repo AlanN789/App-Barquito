@@ -8,8 +8,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule}  from '@angular/material/input';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { MatCardModule } from '@angular/material/card'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,17 +19,8 @@ import { MainComponent } from './components/main/main.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
-import { EquiposComponent } from './components/equipos/equipos.component';
-import { JugadoresComponent } from './components/jugadores/jugadores.component';
-import { MainusuarioComponent } from './components/mainusuario/mainusuario.component';
-import { EditEquipoComponent } from './components/edit-equipo/edit-equipo.component';
-import { EquipoLigaComponent } from './components/equipo-liga/equipo-liga.component';
-import { FederacionesComponent } from './components/federaciones/federaciones.component';
-import { LigasComponent } from './components/ligas/ligas.component';
-import { DtsComponent } from './components/dts/dts.component';
-import { EstadiosComponent } from './components/estadios/estadios.component';
-import { PartidosComponent } from './components/partidos/partidos.component';
-import { PartidoComponent } from './components/partido/partido.component';
+import { PartidasComponent } from './components/partidas/partidas.component';
+import { PartidanewComponent } from './components/partidanew/partidanew.component';
 
 @NgModule({
   declarations: [
@@ -37,17 +29,8 @@ import { PartidoComponent } from './components/partido/partido.component';
     MainComponent,
     LoginComponent,
     RegisterComponent,
-    EquiposComponent,
-    JugadoresComponent,
-    MainusuarioComponent,
-    EditEquipoComponent,
-    EquipoLigaComponent,
-    FederacionesComponent,
-    LigasComponent,
-    DtsComponent,
-    EstadiosComponent,
-    PartidosComponent,
-    PartidoComponent
+    PartidasComponent,
+    PartidanewComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +43,8 @@ import { PartidoComponent } from './components/partido/partido.component';
     MatSelectModule,
     MatInputModule,
     MatCardModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatGridListModule
   ],
   providers: [CookieService, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
   bootstrap: [AppComponent]

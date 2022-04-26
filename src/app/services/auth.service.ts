@@ -10,7 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root'
 })
 export class AuthService {
-  
+
   apiURL = environment.apiURL;
 
   constructor( private http:HttpClient, private cookieService:CookieService ) {}
@@ -26,6 +26,9 @@ export class AuthService {
   }
   checkRole():Observable<any>{
     return this.http.get(`${this.apiURL}/getRol`);
+  }
+  checkID():Observable<any>{
+    return this.http.get(`${this.apiURL}/getInfoUser`);
   }
 
 }
